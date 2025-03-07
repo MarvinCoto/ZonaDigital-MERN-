@@ -32,3 +32,5 @@ productsController.updateProducts = async (req, res) => {
     //Muestro un mensaje que todo se actualizó
     res.json({message: "product updated"});
 };
+
+export default productsController;
