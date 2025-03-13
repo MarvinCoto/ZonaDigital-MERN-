@@ -8,7 +8,7 @@ router.route("/")
 .get(productsController.getProducts)
 .post(productsController.createProducts)
 
-router.route("/id")
+router.route("/:id")
 .put(productsController.updateProducts)
 .delete(productsController.deleteProducts);
 
