@@ -63,7 +63,7 @@ loginController.login = async(req, res) => {
             //4- Función flecha
             (error, token) => {
                 if(error) console.log("error" + error)
-                res.cookie("authCookie", token)
+                res.cookie("authToken", token)
                 res.json({message: "Login succesful"})
             }
 
