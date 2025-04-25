@@ -1,5 +1,6 @@
 import jsonwebtoken from "jsonwebtoken"; //Token
 import bcrypt from "bcryptjs"; //Encriptar
+import { config } from "../config.js"
 
 import clientsModel from "../models/Clients.js"
 import employeesModel from "../models/Employees.js";
@@ -30,10 +31,10 @@ passwordRecoveryController.requestCode = async(req, res) =>{
       if(!userFound){
         res.json({message: "User not found"})
       }
-
+//exequiel.miranda245
       //Generar un código aleatorio
       // (El que se va a enviar)
-      const code = Math.floor(10000+Math.random()*90000).toString
+      const code = Math.floor(10000+Math.random()*90000).toString();
 
       //Guardamos todo en un token
       const token = jsonwebtoken.sign(
@@ -42,7 +43,7 @@ passwordRecoveryController.requestCode = async(req, res) =>{
         //2-Secret key
         config.JWT.secret,
         //3-¿Cuando expira?
-        {expiresIn: "20"}
+        {expiresIn: "20m"}
       )
 
       res.cookie("tokenRecoveryCode", token, {maxAge: 20*60*1000})
@@ -55,9 +56,48 @@ passwordRecoveryController.requestCode = async(req, res) =>{
         HTMLRecoveryEmail(code) //HTML
       );
 
+      res.json({message: "Email sent"})
+
     } catch (error) {
        console.log("error" + error);
     }
 };
+
+//Función para verificar código
+passwordRecoveryController.verifyCode = async (req, res) => {
+  const { code } = req.body;
+
+  try {
+    //Sacar el token de las cookies
+    const token = req.cookies.tokenRecoveryCode
+
+    //Extraer la información del token
+    const decoded = jsonwebtoken.verify(token, config.JWT.secret)
+
+    if(decoded.code !== code){
+      return res.json({message: "Invalid code"})
+    }
+
+    //Marcar el token como verificado
+    const newToken = jsonwebtoken.sign(
+      //1-¿Qué vamos a guardar?
+      {email: decoded.email, 
+       code: decoded.code,
+       userType: decoded.userType,
+      verified: true
+      },
+      //2-Secret key
+      config.JWT.secret,
+      //3-¿Cuando expira?
+      {expiresIn: "20m"}
+    )
+
+    res.cookie("tokenRecoveryCode", newToken, {maxAge: 20*60*1000})
+
+    res.json({message: "Code verified succesfully"})
+  } catch (error) {
+    console.log("error" + error)
+  }
+}
 
 export default passwordRecoveryController;
