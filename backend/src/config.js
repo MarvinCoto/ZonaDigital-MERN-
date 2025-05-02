@@ -23,9 +23,5 @@ export const config = {
     email: {
         user: process.env.USER_EMAIL,
         pass: process.env.USER_PASS
-    },
-    email: {
-        user: process.env.USER_EMAIL,
-        pass: process.env.USER_PASS
-      }
+    }
 };
