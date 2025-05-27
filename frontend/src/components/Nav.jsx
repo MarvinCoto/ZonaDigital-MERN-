@@ -1,25 +1,26 @@
 import React from "react";
+import { NavLink } from 'react-router-dom';
 
 const Nav = () => {
     return (
         <nav className="bg-blue-600 text-white shadow-md">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                <a href="/" className="text-lg font-bold">Dashboard</a>
+                <a to="/" className="text-lg font-bold">Dashboard</a>
                 <ul className="flex space-x-4">
                     <li>
-                        <a href="/products" className="hover:text-gray-200">
+                        <NavLink to="/products" className="hover:text-gray-200">
                             Productos
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/employees" className="hover:text-gray-200">
+                        <NavLink to="/employees" className="hover:text-gray-200">
                             Empleados
-                        </a>
+                        </NavLink>
                     </li>
                     <li>
-                        <a href="/branches" className="hover:text-gray-200">
+                        <NavLink to="/branches" className="hover:text-gray-200">
                             Sucursales
-                        </a>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

@@ -13,7 +13,7 @@ const productsSchema = new Schema({
         type: String,
         require: true
     },
-    descripcion: {
+    description: {
         type: String
     },
     price: {
@@ -32,5 +32,5 @@ const productsSchema = new Schema({
     strict: false
 });
 
-export default model("Products", productsSchema)
+export default model("products", productsSchema)
 

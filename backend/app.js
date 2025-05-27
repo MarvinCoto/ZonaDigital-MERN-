@@ -34,7 +34,7 @@ app.use(cookieParser());
 
 //Definimos las rutas de las funciones que tendrá la página web
 
-app.use("/api/products", validateAuthToken(["admin", "employee"]), productsRoutes)
+app.use("/api/products", productsRoutes)
 app.use("/api/clients", clientsRoutes)
 app.use("/api/employees", employeesRoutes)
 app.use("/api/branches", branchesRoutes)
