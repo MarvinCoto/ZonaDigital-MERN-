@@ -1,7 +1,7 @@
 /*
    Campos:
        name
-       lastName
+       lastname
        birthday
        email
        address
@@ -20,7 +20,7 @@ const employeesSchema = new Schema({
         type: String,
         require: true
     },
-    lastName: {
+    lastname: {
         type: String,
         require: true
     },

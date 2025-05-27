@@ -11,7 +11,7 @@ const ListProducts = ({
 }) => {
   return (
     <>
-    <div className="w-full h-[72vh] overflow-y-auto px-4">
+    <div className="w-full h-[75vh] overflow-y-auto px-4">
       <h1 className="text-2xl font-bold text-center mb-4">Listado de productos</h1>
 
       {loading && <div className="text-center text-gray-500">Cargando...</div>}
