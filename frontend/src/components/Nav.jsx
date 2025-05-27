@@ -5,7 +5,7 @@ const Nav = () => {
     return (
         <nav className="bg-blue-600 text-white shadow-md">
             <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-                <a to="/" className="text-lg font-bold">Dashboard</a>
+                <NavLink to="/" className="text-lg font-bold">Dashboard</NavLink>
                 <ul className="flex space-x-4">
                     <li>
                         <NavLink to="/products" className="hover:text-gray-200">
