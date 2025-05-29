@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import RegisterBranches from "../components/Branches/RegisterBranches";
-import ListBranches from "../components/branches/ListBranches";
-import ModalBranch from "../components/branches/ModalBranch";
+import ListBranches from "../components/Branches/ListBranches";
+import ModalBranch from "../components/Branches/ModalBranch";
 import { Toaster } from "react-hot-toast";
 import useDataBranches from "../components/branches/hooks/useDataBranches";
 
