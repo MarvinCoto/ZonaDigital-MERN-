@@ -19,7 +19,7 @@ branchesController.createBranches = async (req, res) => {
 
 // DELETE
 branchesController.deleteBranches = async (req, res) => {
-    await branchesModel.findOneAndDelete(req.params.id)
+    await branchesModel.findByIdAndDelete(req.params.id)
     res.json({ message: "branch deleted"})
 }
 
