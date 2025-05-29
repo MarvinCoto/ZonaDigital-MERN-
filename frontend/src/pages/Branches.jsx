@@ -3,7 +3,7 @@ import RegisterBranches from "../components/Branches/RegisterBranches";
 import ListBranches from "../components/Branches/ListBranches";
 import ModalBranch from "../components/Branches/ModalBranch";
 import { Toaster } from "react-hot-toast";
-import useDataBranches from "../components/branches/hooks/useDataBranches";
+import useDataBranches from "../components/Branches/hooks/useDataBranches";
 
 const Branches = () => {
   const [showModal, setShowModal] = useState(false);
