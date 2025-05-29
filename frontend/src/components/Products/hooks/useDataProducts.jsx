@@ -11,7 +11,7 @@ const useDataProducts = () => {
   const [loading, setLoading] = useState(true);
 
   // URL fija directamente en el código
-  const API = "http://localhost:4000/api/products";
+  const API = "https://zonadigital-mern.onrender.com/api/products";
 
   const fetchProducts = async () => {
     try {

@@ -17,7 +17,7 @@ const useDataEmployees = () => {
   const [loading, setLoading] = useState(true);
 
   // URL fija directamente en el código
-  const API = "http://localhost:4000/api/employees";
+  const API = "https://zonadigital-mern.onrender.com/api/employees";
 
   const fetchEmployees = async () => {
     try {

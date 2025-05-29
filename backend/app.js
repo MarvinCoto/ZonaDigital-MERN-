@@ -20,7 +20,7 @@ const app = express();
 
 app.use(
     cors({
-      origin: "http://localhost:5173",
+      origin: "http://zona-digital-mern-6ycb.vercel.app",
       // Permitir envío de cookies y credenciales
       credentials: true
     })
