@@ -14,6 +14,7 @@ import recoveryPasswordRoutes from "./src/routes/recoveryPassword.js"
 import providersRoutes from "./src/routes/providers.js"
 import { validateAuthToken } from "./src/middlewares/ValidateAuthToken.js";
 import cors from "cors"
+import faqsRoutes from "./src/routes/faqs.js"
 
 //Creo una constante que es igual a la librería que importé
 const app = express();
@@ -49,6 +50,7 @@ app.use("/api/registerClients", registerClientRoutes)
 app.use("/api/recoveryPassword", recoveryPasswordRoutes); 
 
 app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
+app.use("/api/faqs", faqsRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
 export default app;
