@@ -16,6 +16,10 @@ import { validateAuthToken } from "./src/middlewares/ValidateAuthToken.js";
 import cors from "cors"
 import faqsRoutes from "./src/routes/faqs.js"
 
+import swaggerUi from "swagger-ui-express";
+import fs from "fs";
+import path from "path";
+
 //Creo una constante que es igual a la librería que importé
 const app = express();
 
@@ -33,6 +37,12 @@ app.use(express.json());
 //Que postman acepte guardar cookies
 app.use(cookieParser());
 
+//Traemos el archivo json
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.resolve("./DocumentacionZonaDigital.json"), "utf-8")
+)
+
+app.use("/api/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 //Definimos las rutas de las funciones que tendrá la página web
 
 app.use("/api/products", productsRoutes)
