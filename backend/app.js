@@ -15,6 +15,7 @@ import providersRoutes from "./src/routes/providers.js"
 import { validateAuthToken } from "./src/middlewares/ValidateAuthToken.js";
 import cors from "cors"
 import faqsRoutes from "./src/routes/faqs.js"
+import salesRoutes from "./src/routes/sales.js"
 
 import swaggerUi from "swagger-ui-express";
 import fs from "fs";
@@ -61,6 +62,7 @@ app.use("/api/recoveryPassword", recoveryPasswordRoutes);
 
 app.use("/api/providers", validateAuthToken(["admin"]), providersRoutes)
 app.use("/api/faqs", faqsRoutes)
+app.use("/api/sales", salesRoutes)
 
 //Exporto la constante para poder usar express en otros archivos
 export default app;
