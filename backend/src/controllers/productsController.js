@@ -33,4 +33,29 @@ productsController.updateProducts = async (req, res) => {
     res.json({message: "product updated"});
 };
 
+
+//Stock total de productos
+productsController.totalStock = async(req, res) => {
+
+    try {
+        
+        const resultado = await productsModel.aggregate(
+            [
+                {
+                    $group: {
+                        _id: null,
+                        totalStock: {$sum: "$stock"}
+                    }
+                }
+            ]
+        )
+
+        res.status(200).json(resultado)
+
+    } catch (error) {
+        console.log("error"+error)
+        res.status(500).json({message: "Internal server error"})
+    }
+}
+
 export default productsController;

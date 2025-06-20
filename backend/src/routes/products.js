@@ -12,4 +12,6 @@ router.route("/:id")
 .put(productsController.updateProducts)
 .delete(productsController.deleteProducts);
 
+router.route("/total-stock").get(productsController.totalStock)
+
 export default router;
