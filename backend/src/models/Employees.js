@@ -59,6 +59,14 @@ const employeesSchema = new Schema({
     isVerified: {
         type: Boolean,
         require: true
+    },
+    loginAttemps: {
+        type: Number,
+        default: 0,
+    },
+    timeOut: {
+        type: Date,
+        default: null
     }
 }, 
 {
