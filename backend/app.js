@@ -17,6 +17,8 @@ import cors from "cors"
 import faqsRoutes from "./src/routes/faqs.js"
 import salesRoutes from "./src/routes/sales.js"
 
+import limiter from "./src/middlewares/rateLimiter.js"
+
 import swaggerUi from "swagger-ui-express";
 import fs from "fs";
 import path from "path";
@@ -37,6 +39,8 @@ app.use(express.json());
 
 //Que postman acepte guardar cookies
 app.use(cookieParser());
+
+app.use(limiter);
 
 //Traemos el archivo json
 const swaggerDocument = JSON.parse(
